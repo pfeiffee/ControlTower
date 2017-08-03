@@ -25,6 +25,7 @@ class ControlTower(WebSocket):
         #use event: for all of these - ditch the string go for logof object and print out strng made from it instead
         #clientsMonitor -> loggerOnlyClients will restric what gets logged out if logger is true
         
+        
         self.log(str(self.address)+" < "+str(pkg))
 
         if pkg["type"] == "join":

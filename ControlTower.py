@@ -14,6 +14,11 @@ class ControlTower(WebSocket):
             input["response"] = "hey"
             pkg = json.dumps(input)
             self.sendMessage(pkg)
+        """ 
+        if input["type"] == "scan":
+            pkg = json.dumps(input)
+            self.sendMessage(pkg)
+        """
             
         if input["type"] == "clients":
             pkg = json.dumps(input)
@@ -29,6 +34,12 @@ class ControlTower(WebSocket):
         for client in clients:
             client.sendMessage(self.address[0] + u' - connected')
         clients.append(self)
+        
+        
+        pkg = {"type":"scan"}
+        print(type(pkg))
+        print(pkg)
+        self.sendMessage(json.dumps(pkg))
 
     def handleClose(self):
         clients.remove(self)

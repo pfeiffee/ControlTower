@@ -50,6 +50,11 @@ class ControlTower {
 		this.ws.onmessage = function(event) {
 			console.log("Global Listen",event.data);
 			var response = JSON.parse(event.data);
+			
+			if("type" in response && response.type == "scan"){
+				this.send(JSON.stringify(JSON.decycle(this.controller)));
+			}
+			
 			if("id" in response && response.id in this.controller.mailboxWatchers){
 				this.controller.mailboxWatchers[response.id](response);
 			}

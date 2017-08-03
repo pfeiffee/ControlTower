@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monitor Mode</title>
+<script src="decycle.min.js"></script>
+<script src="ControlTower.js"></script>
+<script>
+	var ct = new ControlTower({
+		url:"ws://127.0.0.1:8000/",
+		channel:"monitors",
+		logging:true,
+		monitoringMode:true,
+		logger: function(response){
+			console.log("msg r",response);
+			var nt = document.createTextNode(response.msg+"\n");
+			var le = document.querySelector("[livestatus]");
+			le.appendChild(nt);
+			le.scrollTop = le.scrollHeight;			
+		}
+	});
+	
+</script>
+<link rel="stylesheet" type="text/css" href="monitor.css">
+</head>
+<body>
+	<script>
+		var ct = new ControlTower("ws://127.0.0.1:8000/");
+	</script>
+
+	<section topBar>
+	<!-- 
+		<select txnObjInputs="host">
+			<option value="pf9poc.usgfoundries.com">pf9poc.usgfoundries.com</option>
+			<option value="localhost">localhost</option>
+			<option value="fc9pfwasp01">fc9pfwasp01.usgfoundries.com</option>
+		</select> 
+		 -->
+		<input type="text" txnObjInputs="command" /> 
+		<input type="button" txnObjInputs="logging" value="Logging On"	onclick="ct.logging(true)" />
+		<input type="button" txnObjInputs="refresh" value="Refresh All"	onclick="ct.refreshPageAll()" />
+	</section>
+	
+	<section livestatus></section>
+
+	<section response></section>
+</body>
+</html>
+

@@ -1,0 +1,95 @@
+html, body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #333;
+	font-family: arial;
+	color: #eee;
+}
+
+section {
+	padding: 5px;
+	margin: 10px;
+	background-color: #777;
+	border: 0px;
+}
+
+[txnObjInputs] {
+	padding: 3px;
+	font-size: 24px;
+	line-height: 24px;
+	background-color: #555;
+	border: 1px solid #555;
+	color: #fff;
+	outline: none;
+}
+
+[txnObjInputs]:hover, [txnObjInputs]:focus {
+	border-bottom-color: #0f0;
+}
+
+select[txnObjInputs] {
+	padding-top: 2px;
+	padding-bottom: 6px;
+}
+
+[type="button"][txnObjInputs] {
+	padding: 4px;
+}
+
+[txnObjInputs="command"] {
+	width: 200px;
+}
+
+[txnObjInputs="args"] {
+	width: 500px;
+}
+
+
+[response], [livestatus] {
+	display: block;
+	unicode-bidi: embed;
+	font-family: monospace;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+[livestatus] {
+	height: 100px;
+	overflow-y: hidden;
+}
+
+[unit] {
+	padding: 10px;
+	margin: 5px;
+	border: 0px solid #212121;
+	background-color: #757575;
+	cursor: pointer;
+	font-family: arial;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
+[unit]>span {
+	-webkit-flex: 1 0 auto;
+	flex: 1 0 auto;
+}
+
+[unit]>span[uts] {
+	-webkit-flex: 0 0 auto;
+	flex: 0 0 auto;
+	width: 60px;
+}
+
+[state="ON"] {
+	background-color: #4CAF50;
+	color: #fff;
+}
+
+[state="OFF"] {
+	background-color: #FF5252;
+	color: #fff;
+}
